@@ -28,11 +28,15 @@ double approximateFactorial(int value)	//Calculate the approximate factorial for
 
 int main()
 {
+//#define USER_INPUT
+	//uncomment the line above this to enable user input, instead of a constant input every time
+
+#ifdef USER_INPUT
+	int value;	//The value to calcualte the factorial of
+	std::stringstream convert;
+
 	cout << "Please enter a number to calculate the factorial of:" << endl;
 	
-	std::stringstream convert;
-	int userInput;	//The value the user entered
-
 	do
 	{
 		std::string input;	//The user input as a string
@@ -45,14 +49,17 @@ int main()
 
 		//Attempt to convert the input to a number
 		convert << input;
-		convert >> userInput;
+		convert >> value;
 
 	} while (convert.fail());		//Loop until we get a valid input
+#else
+	const int value = 15;		//The value to calculate the factorial of
+#endif
 
-	double fac_calc = calculateFactorial(userInput);	//The calculated factorial
-	double fac_approx = approximateFactorial(userInput);	//The approximated factorial
+	double fac_calc = calculateFactorial(value);	//The calculated factorial
+	double fac_approx = approximateFactorial(value);	//The approximated factorial
 
-	cout << "Factorial of " << userInput << " is " << fac_calc << " and the approximation is " << fac_approx << endl;
+	cout << "Factorial of " << value << " is " << fac_calc << " and the approximation is " << fac_approx << endl;
 	cout << "The difference between the two is " << abs(fac_calc - fac_approx) << endl;
 
 	std::cin.get();
