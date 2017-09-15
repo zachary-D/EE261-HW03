@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Question 7.cpp" />
+    <ClCompile Include="..\Question 7.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{97CD4D82-4893-45E0-BC91-EBC20D77D4C2}</ProjectGuid>
