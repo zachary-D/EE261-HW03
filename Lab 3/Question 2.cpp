@@ -45,7 +45,7 @@ int main()
 {
 	vector<int> values;		//Values from the user
 
-	cout << "Enter values by entering the value and pressing enter, and repeating, and type \"done\" and press enter when you're done." << endl;	//Prompt the user for input and explain how they enter it
+	cout << "Enter values by entering the value and pressing enter, and repeating,\n and type \"done\" and press enter when you're done." << endl;	//Prompt the user for input and explain how they enter it
 	cout << "Please enter the values you would like the standard deviation for:" << endl;
 	string input;
 	do
