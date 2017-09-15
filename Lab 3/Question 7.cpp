@@ -32,15 +32,27 @@ int main()
 		
 	std::vector<string> extractedStrings;
 
-	//Loop until 'input' contains no more spaces (and is therefore the final string to be extracted)
-	while (input.find(' ') != string::npos)
+	for (auto iter = input.begin(); iter != input.end(); iter++)	//Loop over every character in the string
 	{
-		string extract = input.substr(0, input.find(' '));	//Extract the word from the string
+		static string extracted;  //Used to store the data of the string being extracted
 
-		input = input.substr(input.find(' ') + 1, input.length());	//remove the extracted work from the remainder
+		if (*iter == ' ')	//If the current character is a space
+		{
+			if (extracted.length() > 0)
+			{		// If the current extracted string has data in it, push it to the extracted strings vector, and empty the string
+				extractedStrings.push_back(extracted);
+				extracted = "";
+			}
+		}
+		else
+		{
 
-		extractedStrings.push_back(extract);		//Add the extracted string to the vector
+		}
+
+
 	}
+
+
 
 	extractedStrings.push_back(input);		//Add the remaining string to the data vector
 
