@@ -36,7 +36,12 @@ int main()
 	{
 		static string extracted;  //Used to store the data of the string being extracted
 
-		if (*iter == ' ')	//If the current character is a space
+		if (iter + 1 == input.end())		//Special case to handle the last character in the string
+		{
+			if (*iter != ' ') extracted += *iter;
+			extractedStrings.push_back(extracted);
+		}
+		else if (*iter == ' ')	//If the current character is a space, or if the current character is the end of the string
 		{
 			if (extracted.length() > 0)
 			{		// If the current extracted string has data in it, push it to the extracted strings vector, and empty the string
@@ -46,15 +51,10 @@ int main()
 		}
 		else
 		{
-
+			//If the new character isn't a blank space, add it to the extracted data string
+			if (*iter != ' ') extracted += *iter;
 		}
-
-
 	}
-
-
-
-	extractedStrings.push_back(input);		//Add the remaining string to the data vector
 
 	//Move the data to name{}
 	if (extractedStrings.size() == 1)
